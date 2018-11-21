@@ -371,6 +371,7 @@ class Keys(metaclass=YAMLGetter):
     omdb: str
     site_api: str
     youtube: str
+    virustotal: str
 
 
 class RabbitMQ(metaclass=YAMLGetter):
@@ -429,6 +430,12 @@ class Reddit(metaclass=YAMLGetter):
 
     request_delay: int
     subreddits: list
+
+
+class Sentinel(metaclass=YAMLGetter):
+    section = "sentinel"
+
+    request_rate: int       # Maximum requests per minute
 
 
 class Wolfram(metaclass=YAMLGetter):

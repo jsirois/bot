@@ -201,6 +201,7 @@ keys:
     omdb:        !ENV "OMDB_API_KEY"
     site_api:    !ENV "BOT_API_KEY"
     youtube:     !ENV "YOUTUBE_API_KEY"
+    virustotal:  !ENV "VIRUSTOTAL_API_KEY"
 
 
 rabbitmq:
@@ -309,6 +310,10 @@ reddit:
     request_delay: 60
     subreddits:
         - 'r/Python'
+
+
+sentinel:
+    request_rate: 4
 
 
 wolfram:
