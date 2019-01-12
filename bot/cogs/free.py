@@ -117,9 +117,9 @@ class Free:
                 # doesn't bring us back here.
                 ctx.command.reset_cooldown(ctx)
                 # return to avoid needlessly logging the error
-                return await ctx.invoke(ctx.command)
+                return await ctx.reinvoke()
 
-        log.error(error)  # Don't ignore other errors
+        log.exception(error)  # Don't ignore other errors
 
 
 def setup(bot):
