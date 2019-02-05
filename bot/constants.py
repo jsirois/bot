@@ -201,7 +201,7 @@ class Filter(metaclass=YAMLGetter):
     filter_zalgo: bool
     filter_invites: bool
     filter_domains: bool
-    filter_rich_embeds: bool
+    watch_rich_embeds: bool
     watch_words: bool
     watch_tokens: bool
 
@@ -209,7 +209,6 @@ class Filter(metaclass=YAMLGetter):
     notify_user_zalgo: bool
     notify_user_invites: bool
     notify_user_domains: bool
-    notify_user_rich_embeds: bool
 
     ping_everyone: bool
     guild_invite_whitelist: List[int]
@@ -352,6 +351,8 @@ class Channels(metaclass=YAMLGetter):
     off_topic_3: int
     python: int
     reddit: int
+    talent_pool: int
+    userlog: int
     verification: int
 
 
@@ -481,12 +482,22 @@ class Free(metaclass=YAMLGetter):
     cooldown_per: float
 
 
+class RedirectOutput(metaclass=YAMLGetter):
+    section = 'redirect_output'
+
+    delete_invocation: bool
+    delete_delay: int
+
+
 # Debug mode
 DEBUG_MODE = True if 'local' in os.environ.get("SITE_URL", "local") else False
 
 # Paths
 BOT_DIR = os.path.dirname(__file__)
 PROJECT_ROOT = os.path.abspath(os.path.join(BOT_DIR, os.pardir))
+
+# Default role combinations
+STAFF_ROLES = Roles.helpers, Roles.moderator, Roles.admin, Roles.owner
 
 # Bot replies
 NEGATIVE_REPLIES = [
